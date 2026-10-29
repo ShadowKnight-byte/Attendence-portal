@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243b">
+  <meta name="description" content="A simple, local-first college student attendance register.">
+  <title>Campus | Attendance register</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#main" aria-label="Campus home"><span class="brand-mark">C</span><span>campus<span class="brand-light">/portal</span></span></a>
+      <p class="side-label">Workspace</p>
+      <a class="nav-link active" href="#register"><span class="nav-icon">▦</span>Attendance</a>
+      <a class="nav-link" href="#register"><span class="nav-icon">♙</span>Students</a>
+      <div class="sidebar-bottom"><span class="avatar">AP</span><span><strong>Class register</strong><small>Local workspace</small></span></div>
+    </aside>
+
+    <main id="main" class="main-content">
+      <header class="topbar"><div><span class="eyebrow">COLLEGE ERP · DAILY OPERATIONS</span><h1>Attendance register</h1></div><span class="today-chip"><span class="live-dot"></span> Attendance workspace</span></header>
+      <section class="intro-row">
+        <div><h2>Good morning</h2><p>Keep today’s class record clear and up to date.</p></div>
+        <div class="date-control"><label for="attendance-date">Class date</label><input id="attendance-date" type="date"></div>
+      </section>
+
+      <section class="metric-grid" aria-label="Attendance summary">
+        <article class="metric-card"><span class="metric-label">Total students</span><strong id="total-count">0</strong><span class="metric-foot">In this class register</span><span class="metric-icon blue-icon">♙</span></article>
+        <article class="metric-card"><span class="metric-label">Present</span><strong id="present-count">0</strong><span class="metric-foot">Marked for this date</span><span class="metric-icon green-icon">✓</span></article>
+        <article class="metric-card"><span class="metric-label">Absent</span><strong id="absent-count">0</strong><span class="metric-foot">Marked for this date</span><span class="metric-icon orange-icon">–</span></article>
+        <article class="metric-card"><span class="metric-label">Attendance rate</span><strong id="rate-count">0%</strong><span class="metric-foot">Present ÷ marked students</span><span class="metric-icon purple-icon">↗</span></article>
+      </section>
+
+      <section id="register" class="content-card">
+        <div class="section-heading"><div><span class="eyebrow">CLASS MANAGEMENT</span><h2>Students</h2><p>Mark each student present or absent for the selected date.</p></div><button id="export-button" class="button button-light" type="button">↓ <span>Export CSV</span></button></div>
+        <form id="student-form" class="add-form">
+          <div class="field"><label for="student-name">Student name</label><input id="student-name" name="name" placeholder="e.g. Asha Patel" required maxlength="80"></div>
+          <div class="field"><label for="student-roll">Roll number</label><input id="student-roll" name="roll" placeholder="e.g. CSE-024" required maxlength="24"></div>
+          <button class="button button-primary" type="submit">＋ Add student</button>
+        </form>
+        <div class="table-toolbar"><div><strong>Class list</strong><span id="list-count" class="count-pill">0 students</span></div><label class="search-field"><span aria-hidden="true">⌕</span><input id="student-search" type="search" placeholder="Search name or roll number" aria-label="Search students"></label></div>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+        <div class="table-wrap"><table><thead><tr><th>Student</th><th>Roll number</th><th>Attendance</th><th>Update status</th><th><span class="sr-only">Remove</span></th></tr></thead><tbody id="student-rows"></tbody></table></div>
+        <div id="empty-state" class="empty-state"><span class="empty-icon">♙</span><strong>No students added yet</strong><p>Add your first student above to start the class register.</p></div>
+        <div class="card-foot"><span><span class="secure-dot"></span> Saved in this browser on this device</span><span id="last-updated">Ready</span></div>
+      </section>
+      <footer class="footer"><span>Campus Attendance · Student project</span><span>Designed for a simple classroom workflow</span></footer>
+    </main>
+  </div>
+</body>
+</html>

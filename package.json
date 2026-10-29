@@ -1,0 +1,15 @@
+{
+  "name": "campus-attendance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "College attendance register with a GitHub Actions CI/CD pipeline",
+  "scripts": {
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "clean": "node scripts/clean.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
